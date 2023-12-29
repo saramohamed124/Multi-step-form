@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&family=Grand+Hotel&family=Montserrat:wght@400;700&family=Open+Sans:wght@700&family=Roboto:wght@300;400&family=Ubuntu:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <!-- Bootstrap File -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- CSS Stylesheet file -->
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<div class=" container d-flex justify-space-between rounded align-items-center ">
+
+  <div class=" container d-flex main flex-row gap-5 justify-space-between p-3 ">
+
+
+    <!-- Sidebar start -->
+    <ul class=" step-sec list-group ">
+      <li class=" list-group-item">
+        <button class="button-before rounded-circle active" id="step-one">1</button>
+        <div class="content">
+          <span class="step">
+            Step 1
+          </span>
+          Your info
+        </div>
+      </li>
+      <li class="list-group-item">
+        <button class="button-before rounded-circle" id="step-two">2</button>
+        <div class="content">
+          <span class="step">
+            Step 2
+          </span>
+          Select plan
+        </div>
+      </li>
+      <li class="list-group-item">
+        <button class="button-before rounded-circle" id="step-three">3</button>
+        <div class="content">
+          <span class="step">
+            Step 3
+          </span>
+          Add-ons
+        </div>
+      </li>
+      <li class="list-group-item">
+        <button class="button-before rounded-circle" id="step-four">4</button>
+        <div class="content">
+          <span class="step">
+            Step 4
+          </span>
+          Summary
+        </div>
+      </li>
+    </ul>
+
+    <!-- Sidebar end -->
+
+    <!-- Step 1 start -->
+    <div class="per-step">
+      <div class=" step-one">
+        <form action="/" id="nxt-form" class="form">
+          <h1>Personal info</h1>
+          <p>Please provide your name, email address, and phone number. </p>
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Name</label>
+            <input type="text" required class=" input-sec-one form-control" id="formGroupExampleInput"
+              placeholder="e.g. Stephen King">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Email Address</label>
+            <input type="text" required class=" input-sec-one form-control" id="formGroupExampleInput2"
+              placeholder="e.g. stephenking@lorem.com">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Phone Number</label>
+            <input type="tel" required class=" input-sec-one form-control" id="formGroupExampleInput2"
+              placeholder="e.g. +1 234 567 890">
+          </div>
+        </form>
+        <button type="submit" class="btn nxt-btn" id="nxt">Next Step</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 1 end -->
+
+  <!-- Step 2 start -->
+  <div class=" step-two form">
+    <h1 class="h2">Select your plan</h1>
+    <p>You have the option of monthly or yearly billing.</p>
+
+    <ul id="month" class="list-group d-flex flex-row flex-wrap justify-space-between gap-2">
+      <li class="list-group-item d-flex flex-column justify-content-start align-items-start active fs-5 p-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+          <g fill="none" fill-rule="evenodd">
+            <circle cx="20" cy="20" r="20" fill="#FFAF7E" />
+            <path fill="#FFF" fill-rule="nonzero"
+              d="M24.995 18.005h-3.998v5.998h-2v-5.998H15a1 1 0 0 0-1 1V29a1 1 0 0 0 1 1h9.995a1 1 0 0 0 1-1v-9.995a1 1 0 0 0-1-1Zm-5.997 8.996h-2v-1.999h2v2Zm2-11.175a2.999 2.999 0 1 0-2 0v2.18h2v-2.18Z" />
+          </g>
+        </svg>
+        <div class="text d-flex flex-column">
+          Arcade
+          <span class="month" style="margin-top: 0.5rem;" id="mo">$9/mo</span>
+        </div>
+
+      </li>
+      <li class="list-group-item  d-flex flex-column justify-content-start align-items-start">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+          <g fill="none" fill-rule="evenodd">
+            <circle cx="20" cy="20" r="20" fill="#F9818E" />
+            <path fill="#FFF" fill-rule="nonzero"
+              d="M25.057 15H14.944C12.212 15 10 17.03 10 19.885c0 2.857 2.212 4.936 4.944 4.936h10.113c2.733 0 4.943-2.08 4.943-4.936S27.79 15 25.057 15ZM17.5 20.388c0 .12-.108.237-.234.237h-1.552v1.569c0 .126-.138.217-.259.217H14.5c-.118 0-.213-.086-.213-.203v-1.583h-1.569c-.126 0-.217-.139-.217-.26v-.956c0-.117.086-.213.202-.213h1.584v-1.554c0-.125.082-.231.203-.231h.989c.12 0 .236.108.236.234v1.551h1.555c.125 0 .231.083.231.204v.988Zm5.347.393a.862.862 0 0 1-.869-.855c0-.472.39-.856.869-.856.481 0 .87.384.87.856 0 .471-.389.855-.87.855Zm1.9 1.866a.86.86 0 0 1-.87-.852.86.86 0 0 1 .87-.855c.48 0 .87.38.87.855a.86.86 0 0 1-.87.852Zm0-3.736a.862.862 0 0 1-.87-.854c0-.472.39-.856.87-.856s.87.384.87.856a.862.862 0 0 1-.87.854Zm1.899 1.87a.862.862 0 0 1-.868-.855c0-.472.389-.856.868-.856s.868.384.868.856a.862.862 0 0 1-.868.855Z" />
+          </g>
+        </svg>
+        <div class="text d-flex flex-column">
+          Advanced
+          <span class="month" style="margin-top: 0.5rem;" id="mo">$12/mo</span>
+        </div>
+      </li>
+      <li class="list-group-item  d-flex flex-column justify-content-start align-items-start">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+          <g fill="none" fill-rule="evenodd">
+            <circle cx="20" cy="20" r="20" fill="#483EFF" />
+            <path fill="#FFF" fill-rule="nonzero"
+              d="M26.666 13H13.334A3.333 3.333 0 0 0 10 16.333v7.193a3.447 3.447 0 0 0 2.14 3.24c1.238.5 2.656.182 3.56-.8L18.52 23h2.96l2.82 2.966a3.2 3.2 0 0 0 3.56.8 3.447 3.447 0 0 0 2.14-3.24v-7.193A3.333 3.333 0 0 0 26.666 13Zm-9.333 6H16v1.333a.667.667 0 0 1-1.333 0V19h-1.333a.667.667 0 0 1 0-1.334h1.333v-1.333a.667.667 0 1 1 1.333 0v1.333h1.333a.667.667 0 1 1 0 1.334Zm7.333 2a2.667 2.667 0 1 1 0-5.333 2.667 2.667 0 0 1 0 5.333ZM26 18.333a1.333 1.333 0 1 1-2.667 0 1.333 1.333 0 0 1 2.667 0Z" />
+          </g>
+        </svg>
+        <div class="text d-flex flex-column">
+          Pro <span class="month" style="margin-top: 0.5rem;" id="mo">$15/mo</span>
+        </div>
+      </li>
+    </ul>
+    <ul id="year" class="list-group d-flex flex-row flex-wrap justify-space-between gap-2">
+      <li class="list-group-item d-flex flex-column justify-content-start align-items-start active fs-5 p-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+          <g fill="none" fill-rule="evenodd">
+            <circle cx="20" cy="20" r="20" fill="#FFAF7E" />
+            <path fill="#FFF" fill-rule="nonzero"
+              d="M24.995 18.005h-3.998v5.998h-2v-5.998H15a1 1 0 0 0-1 1V29a1 1 0 0 0 1 1h9.995a1 1 0 0 0 1-1v-9.995a1 1 0 0 0-1-1Zm-5.997 8.996h-2v-1.999h2v2Zm2-11.175a2.999 2.999 0 1 0-2 0v2.18h2v-2.18Z" />
+          </g>
+        </svg>
+        <div class="text d-flex flex-column">
+          Arcade
+          <span class="month" style="margin-top: 0.5rem;" id="mo">$9/yr</span>
+          <span style="color: hsl(213, 96%, 18%);">2 months free</span>
+        </div>
+
+      </li>
+      <li class="list-group-item  d-flex flex-column justify-content-start align-items-start">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+          <g fill="none" fill-rule="evenodd">
+            <circle cx="20" cy="20" r="20" fill="#F9818E" />
+            <path fill="#FFF" fill-rule="nonzero"
+              d="M25.057 15H14.944C12.212 15 10 17.03 10 19.885c0 2.857 2.212 4.936 4.944 4.936h10.113c2.733 0 4.943-2.08 4.943-4.936S27.79 15 25.057 15ZM17.5 20.388c0 .12-.108.237-.234.237h-1.552v1.569c0 .126-.138.217-.259.217H14.5c-.118 0-.213-.086-.213-.203v-1.583h-1.569c-.126 0-.217-.139-.217-.26v-.956c0-.117.086-.213.202-.213h1.584v-1.554c0-.125.082-.231.203-.231h.989c.12 0 .236.108.236.234v1.551h1.555c.125 0 .231.083.231.204v.988Zm5.347.393a.862.862 0 0 1-.869-.855c0-.472.39-.856.869-.856.481 0 .87.384.87.856 0 .471-.389.855-.87.855Zm1.9 1.866a.86.86 0 0 1-.87-.852.86.86 0 0 1 .87-.855c.48 0 .87.38.87.855a.86.86 0 0 1-.87.852Zm0-3.736a.862.862 0 0 1-.87-.854c0-.472.39-.856.87-.856s.87.384.87.856a.862.862 0 0 1-.87.854Zm1.899 1.87a.862.862 0 0 1-.868-.855c0-.472.389-.856.868-.856s.868.384.868.856a.862.862 0 0 1-.868.855Z" />
+          </g>
+        </svg>
+        <div class="text d-flex flex-column">
+          Advanced
+          <span class="month" style="margin-top: 0.5rem;" id="mo">$12/yr</span>
+
+          <span style="color: hsl(213, 96%, 18%);">2 months free</span>
+        </div>
+      </li>
+      <li class="list-group-item  d-flex flex-column justify-content-start align-items-start">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+          <g fill="none" fill-rule="evenodd">
+            <circle cx="20" cy="20" r="20" fill="#483EFF" />
+            <path fill="#FFF" fill-rule="nonzero"
+              d="M26.666 13H13.334A3.333 3.333 0 0 0 10 16.333v7.193a3.447 3.447 0 0 0 2.14 3.24c1.238.5 2.656.182 3.56-.8L18.52 23h2.96l2.82 2.966a3.2 3.2 0 0 0 3.56.8 3.447 3.447 0 0 0 2.14-3.24v-7.193A3.333 3.333 0 0 0 26.666 13Zm-9.333 6H16v1.333a.667.667 0 0 1-1.333 0V19h-1.333a.667.667 0 0 1 0-1.334h1.333v-1.333a.667.667 0 1 1 1.333 0v1.333h1.333a.667.667 0 1 1 0 1.334Zm7.333 2a2.667 2.667 0 1 1 0-5.333 2.667 2.667 0 0 1 0 5.333ZM26 18.333a1.333 1.333 0 1 1-2.667 0 1.333 1.333 0 0 1 2.667 0Z" />
+          </g>
+        </svg>
+        <div class="text d-flex flex-column">
+          Pro <span class="month" style="margin-top: 0.5rem;" id="mo">$15/yr</span>
+          <span style="color: hsl(213, 96%, 18%);">2 months free</span>
+        </div>
+      </li>
+    </ul>
+    <div class="mon-week d-flex justify-content-center align-items-center flex-row gap-2">
+      <span>Monthly</span> <span class="form-switch form-check d-flex align-items-center justify-content-center"><input
+          class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckChecked" checked></span>
+      <span>Yearly</span>
+    </div>
+    <div class="btns">
+      <button type="submit" class="btn" id="btn-back">Go Back</button>
+      <button type="submit" class="btn nxt-btn" id="nxtStepTwo">Next Step</button>
+    </div>
+  </div>
+  <!-- Step 2 end -->
+
+  <!-- Step 3 start -->
+  <div class="step-three">
+    <h1>Pick add-ons</h1>
+    <p>Add-ons help enhance your gaming experience.</p>
+    <ul id="month" class="list-group d-flex flex-row flex-wrap justify-space-between gap-2">
+      <li>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Online service Access to multiplayer games +$1/mo
+      </li>
+      <li>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Larger storage Extra 1TB of cloud save +$2/mo
+      </li>
+      <li>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Customizable
+          Profile Custom theme on your profile +$2/mo
+      </li>
+    </ul>
+    <div class="btns">
+      <button type="submit" class="btn">Go Back</button>
+      <button type="submit" class="btn ">Next Step</button>
+    </div>
+  </div>
+  <!-- Step 3 end -->
+
+  <!-- Step 4 start -->
+  <div class="step-four">
+    Finishing up
+    Double-check everything looks OK before confirming.
+
+    <!-- Dynamically add subscription and add-on selections here -->
+
+    Total (per month/year)
+
+    Go Back
+    Confirm
+
+    <!-- Step 4 end -->
+
+    <!-- Step 5 start -->
+
+    Thank you!
+
+    Thanks for confirming your subscription! We hope you have fun
+    using our platform. If you ever need support, please feel free
+    to email us at support@loremgaming.com.
+  </div>
+</div>
+
+<!-- Step 5 end -->
+<div class=" attribution">
+  Challenge by
+  <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+  Coded by
+  <a href="#">Your Name Here</a>.
+</div>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+
+</html>
