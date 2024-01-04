@@ -16,6 +16,13 @@
     box-sizing: border-box;
 }
 
+@media (min-width:767px) {
+
+    .media-margin {
+        margin-top: 5px !important;
+    }
+}
+
 body {
     background-color: var(--neutral-alabaster);
     font-family: 'Ubuntu', sans-serif;
@@ -59,21 +66,21 @@ ul.step-sec {
 .main ul.step-sec li .button-before {
     border: 1px solid var(--primary-pastel-blue);
     background-color: transparent;
-    padding: 4px 12px;
+    padding: 4px 12px !important;
     text-align: center;
     font-size: 14px;
     font-weight: 600;
     color: white;
 }
 
-.main ul.step-sec li .button-before.active, .main ul.step-sec li .button-before:hover {
-    background-color: var(--primary-pastel-blue);
-    color: var(--primary-marine-blue);
-    transition: var(--main-transition);
-    -webkit-transition: var(--main-transition);
-    -moz-transition: var(--main-transition);
-    -ms-transition: var(--main-transition);
-    -o-transition: var(--main-transition);
+.active {
+    background-color: var(--primary-pastel-blue) !important;
+    color: var(--primary-marine-blue) !important;
+    transition: var(--main-transition) !important;
+    -webkit-transition: var(--main-transition) !important;
+    -moz-transition: var(--main-transition) !important;
+    -ms-transition: var(--main-transition) !important;
+    -o-transition: var(--main-transition) !important;
 }
 
 .main .per-step {
@@ -211,16 +218,7 @@ ul.step-sec {
     -o-border-radius: 5%;
 }
 
-.step-two ul li.active, .step-two ul li:hover {
-    cursor: pointer;
-    background-color: var(--neutral-alabaster) !important;
-    border-color: var(--primary-marine-blue) !important;
-    transition: var(--main-transition);
-    -webkit-transition: var(--main-transition);
-    -moz-transition: var(--main-transition);
-    -ms-transition: var(--main-transition);
-    -o-transition: var(--main-transition);
-}
+
 
 .step-two ul li span {
     margin-top: -20px;
