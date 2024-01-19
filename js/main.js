@@ -12,8 +12,9 @@ let inputsecOne = document.querySelectorAll(".input-sec-one"),
   inputcheck = document.querySelectorAll("input[type=checkbox]");
 console.log(inputcheck);
 // Lists
-let listStpTwo = document.querySelectorAll("#list_stpTwo"),
+let listStpTwo = document.querySelectorAll(".list-group-items"),
   listinput = document.querySelectorAll("li.list-input");
+
 // Normal Buttons
 let btnStpOne = document.getElementById("step-one"),
   btnStpTwo = document.getElementById("step-two"),
@@ -84,6 +85,7 @@ btnNext.onclick = function () {
     }
   }
 };
+
 btnBackSecThree.onclick = function () {
   SecTwo.next.data.remove();
   secMain.append(SecTwo.data);
@@ -100,6 +102,16 @@ btnNextTwo.addEventListener("click", function () {
   btnStpThree.classList.add("active");
   btnStpFour.classList.remove("active");
 });
+console.log(listStpTwo[1]);
+// console.log(listStpTwo);
+for (let j = 0; j < listStpTwo.length; j++) {
+  listStpTwo[j].onclick = function () {
+    listStpTwo[j].classList.toggle("active_list");
+    listStpTwo[j - 1].classList.remove("active_list");
+    listStpTwo[j + 1].classList.remove("active_list");
+    console.log(listStpTwo[0][0].innerHTML);
+  };
+}
 btnNextThree.onclick = function () {
   SecTwo.next.data.remove();
   secMain.append(Secthree.next.data);
