@@ -1,30 +1,32 @@
 // Sections
-let secMain = document.querySelector("div.per-step");
-let secONe = document.querySelector("div.step-one");
-let secTwo = document.querySelector("div.step-two");
-let secThree = document.querySelector("div.step-three");
-let secFour = document.querySelector("div.step-four");
+let secMain = document.querySelector("div.per-step"),
+  secONe = document.querySelector("div.step-one"),
+  secTwo = document.querySelector("div.step-two"),
+  secThree = document.querySelector("div.step-three"),
+  secFour = document.querySelector("div.step-four");
 // let secONeform = document.getElementById("nxt-form");
 
 // Inputs
-let inputsecOne = document.querySelectorAll(".input-sec-one");
-let inputyear = document.getElementById("flexSwitchCheckChecked");
-
+let inputsecOne = document.querySelectorAll(".input-sec-one"),
+  inputyear = document.getElementById("check"),
+  inputcheck = document.querySelectorAll("input[type=checkbox]");
+console.log(inputcheck);
 // Lists
-let ulmonthsec = document.getElementById("month");
-let ulyearsec = document.getElementById("year");
-
+let listStpTwo = document.querySelectorAll("#list_stpTwo"),
+  listinput = document.querySelectorAll("li.list-input");
 // Normal Buttons
-let btnStpOne = document.getElementById("step-one");
-let btnStpTwo = document.getElementById("step-two");
-let btnSecThree = document.getElementById("step-three");
+let btnStpOne = document.getElementById("step-one"),
+  btnStpTwo = document.getElementById("step-two"),
+  btnStpThree = document.getElementById("step-three"),
+  btnStpFour = document.getElementById("step-four");
 
 // Next Buttons
-let btnNext = document.getElementById("nxt");
-let btnNextTwo = document.getElementById("nxtStepTwo");
-
+let btnNext = document.getElementById("nxt"),
+  btnNextTwo = document.getElementById("nxtStepTwo"),
+  btnBackSecThree = document.getElementById("back_btn_stptwo"),
+  btnNextThree = document.getElementById("btn_nxt_stpTwo");
 // Remove all sec except the first section
-ulyearsec.remove();
+// ulyearsec.remove();
 secTwo.remove();
 secThree.remove();
 secFour.remove();
@@ -53,14 +55,13 @@ SecFour.next = Secone;
 function yearsec() {
   ulmonthsec.after(ulyearsec);
   ulmonthsec.remove();
+  console.log(inputyear);
 }
 function sectwo() {
   Secone.next.data.remove();
   secMain.append(Secone.data);
-  btnStpOne.style.backgroundColor = "#bfe2fd";
-  btnStpOne.style.color = "#02295a";
-  btnStpTwo.style.backgroundColor = "transparent";
-  btnStpTwo.style.color = "#fff";
+  btnStpOne.classList.add("active");
+  btnStpTwo.classList.remove("active");
 }
 
 // Section nextButton
@@ -76,22 +77,42 @@ btnNext.onclick = function () {
       secMain.append(Secone.next.data);
       btnStpOne.classList.remove("active");
       btnStpTwo.classList.add("active");
+      btnStpThree.classList.remove("active");
+      btnStpFour.classList.remove("active");
       let btnBack = document.getElementById("btn-back");
       btnBack.addEventListener("click", sectwo);
     }
   }
 };
+btnBackSecThree.onclick = function () {
+  SecTwo.next.data.remove();
+  secMain.append(SecTwo.data);
+  btnStpOne.classList.remove("active");
+  btnStpTwo.classList.add("active");
+  btnStpThree.classList.remove("active");
+  btnStpFour.classList.remove("active");
+};
 btnNextTwo.addEventListener("click", function () {
   Secone.next.data.remove();
   secMain.append(SecTwo.next.data);
+  btnStpOne.classList.remove("active");
   btnStpTwo.classList.remove("active");
-  btnSecThree.classList.add("active");
+  btnStpThree.classList.add("active");
+  btnStpFour.classList.remove("active");
 });
-// test
-console.log(secMain.children);
+btnNextThree.onclick = function () {
+  SecTwo.next.data.remove();
+  secMain.append(Secthree.next.data);
+};
 
-inputyear.addEventListener("click", yearsec);
-inputyear.addEventListener("blur", function () {
-  ulyearsec.before(ulmonthsec);
-  ulyearsec.remove();
-});
+inputyear.onclick = function () {
+  console.log(document.querySelectorAll("span.month"));
+  let spanMOnth = document.querySelectorAll("span.month"),
+    spanYear = document.querySelectorAll("span.year");
+  for (let i = 0; i < spanMOnth.length; i++)
+    spanMOnth[i].classList.toggle("hide");
+  for (let k = 0; k < spanYear.length; k++)
+    spanYear[k].classList.toggle("hide");
+
+  document.querySelector(".spm").children[0].classList.toggle("right");
+};
