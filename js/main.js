@@ -13,7 +13,8 @@ let inputsecOne = document.querySelectorAll(".input-sec-one"),
 console.log(inputcheck);
 // Lists
 let listStpTwo = document.querySelectorAll(".list-group-items"),
-  listinput = document.querySelectorAll("li.list-input");
+  listinput = document.querySelectorAll("li.list-input"),
+  list = document.querySelectorAll("li.lst");
 
 // Normal Buttons
 let btnStpOne = document.getElementById("step-one"),
@@ -102,29 +103,41 @@ btnNextTwo.addEventListener("click", function () {
   btnStpThree.classList.add("active");
   btnStpFour.classList.remove("active");
 });
+
 console.log(listStpTwo[1]);
 // console.log(listStpTwo);
-for (let j = 0; j < listStpTwo.length; j++) {
-  listStpTwo[j].onclick = function () {
-    listStpTwo[j].classList.toggle("active_list");
-    listStpTwo[j - 1].classList.remove("active_list");
-    listStpTwo[j + 1].classList.remove("active_list");
-    console.log(listStpTwo[0][0].innerHTML);
-  };
-}
 btnNextThree.onclick = function () {
   SecTwo.next.data.remove();
   secMain.append(Secthree.next.data);
 };
-
+let data = "";
+let spanMOnth = document.querySelectorAll("span.month"),
+  spanYear = document.querySelectorAll("span.year");
 inputyear.onclick = function () {
+  // console.log(spanMOnth.values[0]);
   console.log(document.querySelectorAll("span.month"));
-  let spanMOnth = document.querySelectorAll("span.month"),
-    spanYear = document.querySelectorAll("span.year");
-  for (let i = 0; i < spanMOnth.length; i++)
+  for (let i = 0; i < spanMOnth.length; i++) {
     spanMOnth[i].classList.toggle("hide");
+    console.log(this.textContent);
+    if (!spanMOnth[i].classList.contains("hide")) {
+      data.concat(spanMOnth[i].innerHTML);
+    }
+  }
   for (let k = 0; k < spanYear.length; k++)
     spanYear[k].classList.toggle("hide");
-
   document.querySelector(".spm").children[0].classList.toggle("right");
+  // .forEach((span) => {
+  // });
+  console.log(data);
 };
+
+list.forEach((li) => {
+  li.onclick = function () {
+    list.forEach((li) => {
+      li.classList.remove("active_list");
+    });
+    if (!li.classList.contains("active_list")) {
+      li.classList.add("active_list");
+    }
+  };
+});
