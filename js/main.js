@@ -12,10 +12,9 @@ let inputsecOne = document.querySelectorAll(".input-sec-one"),
   inputcheck = document.querySelectorAll("input[type=checkbox]");
 console.log(inputcheck);
 // Lists
-let listStpTwo = document.querySelectorAll(".list-group-items"),
-  listinput = document.querySelectorAll("li.list-input"),
-  list = document.querySelectorAll("li.lst");
-
+let listinput = document.querySelectorAll("li.list-input"),
+  listStpTwo = document.querySelectorAll(".lst"),
+  listStpThree = document.querySelectorAll(".card");
 // Normal Buttons
 let btnStpOne = document.getElementById("step-one"),
   btnStpTwo = document.getElementById("step-two"),
@@ -86,7 +85,6 @@ btnNext.onclick = function () {
     }
   }
 };
-
 btnBackSecThree.onclick = function () {
   SecTwo.next.data.remove();
   secMain.append(SecTwo.data);
@@ -95,6 +93,46 @@ btnBackSecThree.onclick = function () {
   btnStpThree.classList.remove("active");
   btnStpFour.classList.remove("active");
 };
+
+let month;
+// When click on inputcheck if month or year
+inputyear.onclick = function () {
+  // Spans of year and Spans of month
+  let spanMOnth = document.querySelectorAll("span.month"),
+    spanYear = document.querySelectorAll("span.year");
+  month = true;
+
+  // Loops on spans of month
+  for (let i = 0; i < spanMOnth.length; i++) {
+    spanMOnth[i].classList.toggle("hide");
+    // Check if spans have class of hide or not
+    if (spanMOnth[i].classList.contains("hide")) {
+      month = false;
+    } else {
+      month = true;
+    }
+  }
+  // Loops on spans of year
+  for (let k = 0; k < spanYear.length; k++)
+    spanYear[k].classList.toggle("hide");
+  // Make span child of span.spm move right
+  document.querySelector(".spm").children[0].classList.toggle("right");
+};
+// loop on li tags
+listStpTwo.forEach((li) => {
+  // When click on li remove active_list class on it
+  li.onclick = function () {
+    listStpTwo.forEach((li) => {
+      li.classList.remove("active_list");
+    });
+    // Add class of active_list if li doesn't contain it
+    if (!li.classList.contains("active_list")) {
+      li.classList.add("active_list");
+    }
+  };
+});
+
+// sec three
 btnNextTwo.addEventListener("click", function () {
   Secone.next.data.remove();
   secMain.append(SecTwo.next.data);
@@ -102,42 +140,27 @@ btnNextTwo.addEventListener("click", function () {
   btnStpTwo.classList.remove("active");
   btnStpThree.classList.add("active");
   btnStpFour.classList.remove("active");
-});
 
-console.log(listStpTwo[1]);
-// console.log(listStpTwo);
+  // Sec Three add span
+  if (month === false) {
+    document.querySelectorAll(".year-span").forEach((spanYr) => {
+      // Make span hide or not
+      spanYr.classList.remove("hide");
+    });
+    document.querySelectorAll(".month-span").forEach((spanMon) => {
+      spanMon.classList.add("hide");
+    });
+  } else {
+    document.querySelectorAll(".month-span").forEach((spanMon) => {
+      spanMon.classList.remove("hide");
+    });
+    document.querySelectorAll(".year-span").forEach((spanYr) => {
+      // Make span hide or not
+      spanYr.classList.add("hide");
+    });
+  }
+});
 btnNextThree.onclick = function () {
   SecTwo.next.data.remove();
   secMain.append(Secthree.next.data);
 };
-let data = "";
-let spanMOnth = document.querySelectorAll("span.month"),
-  spanYear = document.querySelectorAll("span.year");
-inputyear.onclick = function () {
-  // console.log(spanMOnth.values[0]);
-  console.log(document.querySelectorAll("span.month"));
-  for (let i = 0; i < spanMOnth.length; i++) {
-    spanMOnth[i].classList.toggle("hide");
-    console.log(this.textContent);
-    if (!spanMOnth[i].classList.contains("hide")) {
-      data.concat(spanMOnth[i].innerHTML);
-    }
-  }
-  for (let k = 0; k < spanYear.length; k++)
-    spanYear[k].classList.toggle("hide");
-  document.querySelector(".spm").children[0].classList.toggle("right");
-  // .forEach((span) => {
-  // });
-  console.log(data);
-};
-
-list.forEach((li) => {
-  li.onclick = function () {
-    list.forEach((li) => {
-      li.classList.remove("active_list");
-    });
-    if (!li.classList.contains("active_list")) {
-      li.classList.add("active_list");
-    }
-  };
-});

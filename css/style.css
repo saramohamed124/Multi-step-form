@@ -12,9 +12,14 @@
   --main-transition: 0.3s;
 }
 
+.right {
+  right: 4px !important;
+}
+
 .hide {
   display: none;
 }
+
 
 * {
   box-sizing: border-box;
@@ -36,9 +41,7 @@
   -o-transform: translate(-50%);
 }
 
-.right {
-  right: 4px !important;
-}
+
 
 @media (min-width: 767px) {
   .media-margin {
@@ -304,7 +307,7 @@ ul.step-sec {
   }
 }
 
-.active_list {
+.active_list, .card_active {
   border-color: var(--primary-purplish-blue) !important;
   background-color: var(--bs-tertiary-bg) !important;
 }
@@ -316,3 +319,21 @@ ul.step-sec {
 }
 
 /* End Step Two */
+
+/* Start Step Three */
+.card label {
+  margin-right: 5px;
+}
+
+.card .span-money {
+  color: var(--primary-purplish-blue) !important;
+
+}
+
+
+.card span:last-child {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* End Step Three */
