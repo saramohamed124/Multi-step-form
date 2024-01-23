@@ -9,7 +9,7 @@ let secMain = document.querySelector("div.per-step"),
 // Inputs
 let inputsecOne = document.querySelectorAll(".input-sec-one"),
   inputyear = document.getElementById("check"),
-  inputcheck = document.querySelectorAll("input[type=checkbox]");
+  inputcheck = document.querySelectorAll(".form-check-input");
 console.log(inputcheck);
 // Lists
 let listinput = document.querySelectorAll("li.list-input"),
@@ -25,7 +25,8 @@ let btnStpOne = document.getElementById("step-one"),
 let btnNext = document.getElementById("nxt"),
   btnNextTwo = document.getElementById("nxtStepTwo"),
   btnBackSecThree = document.getElementById("back_btn_stptwo"),
-  btnNextThree = document.getElementById("btn_nxt_stpTwo");
+  btnNextThree = document.getElementById("btn_nxt_stpTwo"),
+  btnBackSecFour = document.getElementById("back_btn_stpthree");
 // Remove all sec except the first section
 // ulyearsec.remove();
 secTwo.remove();
@@ -53,11 +54,7 @@ Secthree.next = SecFour;
 SecFour.next = Secone;
 
 // Functions I will use
-function yearsec() {
-  ulmonthsec.after(ulyearsec);
-  ulmonthsec.remove();
-  console.log(inputyear);
-}
+
 function sectwo() {
   Secone.next.data.remove();
   secMain.append(Secone.data);
@@ -140,6 +137,16 @@ btnNextTwo.addEventListener("click", function () {
   btnStpTwo.classList.remove("active");
   btnStpThree.classList.add("active");
   btnStpFour.classList.remove("active");
+  // Add class active to checkbox input
+  listStpThree.forEach((li) => {
+    li.onclick = function () {
+      // li.classList.remove("card_active");
+      li.classList.toggle("card_active");
+    };
+    document.querySelectorAll(".form-check-input").forEach((input) => {
+      input.click = true;
+    });
+  });
 
   // Sec Three add span
   if (month === false) {
@@ -163,4 +170,14 @@ btnNextTwo.addEventListener("click", function () {
 btnNextThree.onclick = function () {
   SecTwo.next.data.remove();
   secMain.append(Secthree.next.data);
+  btnStpFour.classList.add("active");
+  btnStpThree.classList.remove("active");
+};
+btnBackSecFour.onclick = function () {
+  Secthree.next.data.remove();
+  secMain.append(Secthree.data);
+  btnStpOne.classList.remove("active");
+  btnStpTwo.classList.remove("active");
+  btnStpThree.classList.add("active");
+  btnStpFour.classList.remove("active");
 };

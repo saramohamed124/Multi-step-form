@@ -277,7 +277,7 @@ ul.step-sec {
   color: var(--neutral-cool-gray);
 }
 
-.step-two .btns .btn:focus {
+.btns .btn:focus {
   border: none !important;
 }
 
@@ -325,11 +325,18 @@ ul.step-sec {
   margin-right: 5px;
 }
 
+.card {
+  cursor: pointer;
+}
+
 .card .span-money {
   color: var(--primary-purplish-blue) !important;
 
 }
 
+button {
+  border: none;
+}
 
 .card span:last-child {
   font-size: 14px;
