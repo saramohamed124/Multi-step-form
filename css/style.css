@@ -224,9 +224,6 @@ ul.step-sec {
   gap: 20px;
   width: 120px;
   min-width: 100px;
-  color: var(--primary-marine-blue) !important;
-  font-size: 18px !important;
-  font-weight: 500;
   border-style: solid !important;
   border-color: var(--neutral-cool-gray);
   border-width: 1px !important;
@@ -235,6 +232,13 @@ ul.step-sec {
   -moz-border-radius: 5%;
   -ms-border-radius: 5%;
   -o-border-radius: 5%;
+}
+
+.step-two ul li .text span:first-child {
+  color: var(--primary-marine-blue) !important;
+  font-size: 18px !important;
+  font-weight: 500;
+  display: inline-block !important;
 }
 
 .step-two ul li span {
@@ -291,14 +295,15 @@ ul.step-sec {
     -moz-border-radius: 10px !important;
     -ms-border-radius: 10px !important;
     -o-border-radius: 10px !important;
+    align-items: center !important;
   }
 
-  .step-two ul li .text {
+  /* .step-two ul li .text {
     display: flex;
     flex-direction: column;
     justify-content: end;
     gap: 20px;
-  }
+  } */
 
   .step-two .mon-week {
     margin: 20px auto;
@@ -344,3 +349,10 @@ button {
 }
 
 /* End Step Three */
+/* Start Step Four */
+.text-content {
+  display: flex;
+  background-color: var(--neutral-light-gray);
+}
+
+/* End Step Four */

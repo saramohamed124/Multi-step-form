@@ -61,7 +61,19 @@ function sectwo() {
   btnStpOne.classList.add("active");
   btnStpTwo.classList.remove("active");
 }
-
+function lstStpTwo() {
+  listStpTwo.forEach((li) => {
+    if (li.classList.contains("active_list")) {
+      // listData = document.querySelector(".active_list .text");
+      listData =
+        document.querySelector(".active_list").childNodes[3].children[0]
+          .textContent +
+        document.querySelector(
+          ".step-two .lst .text span.media-margin:not(.hide)"
+        ).textContent;
+    }
+  });
+}
 // Section nextButton
 btnStpOne.getAttribute("class");
 btnNext.onclick = function () {
@@ -81,7 +93,9 @@ btnNext.onclick = function () {
       btnBack.addEventListener("click", sectwo);
     }
   }
+  lstStpTwo();
 };
+
 btnBackSecThree.onclick = function () {
   SecTwo.next.data.remove();
   secMain.append(SecTwo.data);
@@ -89,6 +103,7 @@ btnBackSecThree.onclick = function () {
   btnStpTwo.classList.add("active");
   btnStpThree.classList.remove("active");
   btnStpFour.classList.remove("active");
+  lstStpTwo();
 };
 
 let month;
@@ -115,6 +130,7 @@ inputyear.onclick = function () {
   // Make span child of span.spm move right
   document.querySelector(".spm").children[0].classList.toggle("right");
 };
+let listData;
 // loop on li tags
 listStpTwo.forEach((li) => {
   // When click on li remove active_list class on it
@@ -125,6 +141,15 @@ listStpTwo.forEach((li) => {
     // Add class of active_list if li doesn't contain it
     if (!li.classList.contains("active_list")) {
       li.classList.add("active_list");
+    }
+    if (li.classList.contains("active_list")) {
+      // listData = document.querySelector(".active_list .text");
+      listData =
+        document.querySelector(".active_list").childNodes[3].children[0]
+          .textContent +
+        document.querySelector(
+          ".step-two .lst .text span.media-margin:not(.hide)"
+        ).textContent;
     }
   };
 });
@@ -167,11 +192,14 @@ btnNextTwo.addEventListener("click", function () {
     });
   }
 });
+// When click on next button Remove data of Section Three
+// And Append Data of Section Four
 btnNextThree.onclick = function () {
   SecTwo.next.data.remove();
   secMain.append(Secthree.next.data);
   btnStpFour.classList.add("active");
   btnStpThree.classList.remove("active");
+  secFour.querySelector(".text").textContent = listData;
 };
 btnBackSecFour.onclick = function () {
   Secthree.next.data.remove();
